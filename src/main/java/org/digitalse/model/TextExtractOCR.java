@@ -1,5 +1,12 @@
 package org.digitalse.model;
-
+/**
+ * DigitalSE-OCR
+ * TextExtractOCR.java
+ * Propósito: Extração de texto de imagens.
+ *
+ * @author Fabio Gomes Rocha
+ * @version 0.0.1 12/04/2021
+ */
 import java.io.File;
 
 import net.sourceforge.tess4j.Tesseract;

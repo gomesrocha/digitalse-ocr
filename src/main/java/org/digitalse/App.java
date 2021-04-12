@@ -1,5 +1,12 @@
 package org.digitalse;
-
+/**
+ * DigitalSE-OCR
+ * App.java
+ * Propósito: Centralizar uso do OCR.
+ *
+ * @author Fabio Gomes Rocha
+ * @version 0.0.1 12/04/2021
+ */
 import javax.swing.WindowConstants;
 
 import org.bytedeco.javacv.CanvasFrame;

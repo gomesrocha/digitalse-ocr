@@ -1,5 +1,12 @@
 package org.digitalse;
-
+/**
+ * DigitalSE-OCR
+ * TestExtractText.java
+ * Propósito: Teste da Extração de texto de imagens usando BDD.
+ *
+ * @author Fabio Gomes Rocha
+ * @version 0.0.1 12/04/2021
+ */
 
 import static org.junit.Assert.assertEquals;
 

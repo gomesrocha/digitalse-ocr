@@ -1,5 +1,12 @@
 package org.digitalse.utils;
-
+/**
+ * DigitalSE-OCR
+ * ConvertInformation.java
+ * Propósito: Conversão de imagem em Mat e vice-versa.
+ *
+ * @author Fabio Gomes Rocha
+ * @version 0.0.1 12/04/2021
+ */
 import java.awt.image.BufferedImage;
 
 import org.bytedeco.javacv.Java2DFrameConverter;

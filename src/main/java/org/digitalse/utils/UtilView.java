@@ -1,5 +1,12 @@
 package org.digitalse.utils;
-
+/**
+ * DigitalSE-OCR
+ * UtilView.java
+ * Propósito: Exibição de imagem no desktop.
+ *
+ * @author Fabio Gomes Rocha
+ * @version 0.0.1 12/04/2021
+ */
 import javax.swing.WindowConstants;
 
 import org.bytedeco.javacv.CanvasFrame;

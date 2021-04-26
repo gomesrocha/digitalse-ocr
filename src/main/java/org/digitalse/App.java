@@ -66,7 +66,7 @@ public class App
         tess4j.setTessVariable("user_defined_dpi", "300");
         //tess4j.setTessVariable("debug_file", "/dev/null");
         tess4j.setDatapath("data/");
-        tess4j.setLanguage("por")
+        tess4j.setLanguage("por");
         try {
             String result = tess4j.doOCR(imageFile);
             List<String> res = Arrays.asList(te.token(result));

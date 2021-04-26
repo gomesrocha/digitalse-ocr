@@ -14,6 +14,8 @@ import net.sourceforge.tess4j.TesseractException;
 
 public class TextExtractOCR {
 	String lang, imagem;
+	
+	
 
 	public void setLang(String lang) {
 		this.lang = lang;

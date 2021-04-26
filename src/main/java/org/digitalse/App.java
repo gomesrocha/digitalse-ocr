@@ -14,6 +14,7 @@ import org.bytedeco.javacv.Java2DFrameConverter;
 import org.bytedeco.javacv.OpenCVFrameConverter;
 import org.bytedeco.opencv.opencv_core.Mat;
 import org.bytedeco.opencv.opencv_core.Scalar;
+import org.digitalse.model.TokenExtract;
 import org.digitalse.utils.ConvertInformation;
 import org.digitalse.utils.UtilView;
 import org.opencv.core.CvType;
@@ -34,6 +35,8 @@ import java.awt.image.WritableRaster;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
 
 public class App 
 {
@@ -57,16 +60,23 @@ public class App
     
         	*/	
         //BufferedImage imageFile = ConvertInformation.matToBufferedImage(src);
-      
+        TokenExtract te = new TokenExtract();
     	File imageFile = new File("data/ocr1.png");
         Tesseract tess4j = new Tesseract();
         tess4j.setTessVariable("user_defined_dpi", "300");
         //tess4j.setTessVariable("debug_file", "/dev/null");
         tess4j.setDatapath("data/");
-        tess4j.setLanguage("por");
+        tess4j.setLanguage("por")
         try {
             String result = tess4j.doOCR(imageFile);
-            System.out.println(result);
+            List<String> res = Arrays.asList(te.token(result));
+            //Identico ao for abaixo
+            // String res[] = te.token(result);
+            //Arrays.stream(res).forEach(r -> {System.out.println(r);});
+            res.forEach(r -> {System.out.println(r);});
+            for(String r: res) {
+            	System.out.println(r);
+            }
         } catch (TesseractException e) {
             System.err.println(e.getMessage());
         }

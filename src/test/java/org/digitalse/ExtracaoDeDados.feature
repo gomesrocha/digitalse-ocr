@@ -7,7 +7,7 @@ Funcionalidade: Extração de dados de imagem
 	Para que eu possa extrair o texto
 
 @tag1
-Cenario: Extraindo dados de arquivo de imageme
+Cenario: Extraindo dados de arquivo de imagem
 	Dado que eu insira uma imagem <image>
 	Quando eu selecionar o idioma <lang>
 	Então o sistema extrair o texto retornando <textreturn>

@@ -10,10 +10,14 @@ package org.digitalse;
 import javax.swing.WindowConstants;
 
 import org.bytedeco.javacv.CanvasFrame;
+import org.bytedeco.javacv.Frame;
+import org.bytedeco.javacv.FrameGrabber.Exception;
 import org.bytedeco.javacv.Java2DFrameConverter;
 import org.bytedeco.javacv.OpenCVFrameConverter;
+import org.bytedeco.javacv.OpenCVFrameGrabber;
 import org.bytedeco.opencv.opencv_core.Mat;
 import org.bytedeco.opencv.opencv_core.Scalar;
+import org.digitalse.model.ImagePreProcessing;
 import org.digitalse.model.TokenExtract;
 import org.digitalse.utils.ConvertInformation;
 import org.digitalse.utils.UtilView;
@@ -29,6 +33,7 @@ import static org.bytedeco.opencv.global.opencv_imgproc.Laplacian;
 
 import org.bytedeco.javacpp.*;
 
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
@@ -41,7 +46,7 @@ import java.util.List;
 public class App 
 {
 
-    public static void main( String[] args )
+    public static void main( String[] args ) throws Exception
     {
     	/*
         BytePointer outText;
@@ -60,8 +65,9 @@ public class App
     
         	*/	
         //BufferedImage imageFile = ConvertInformation.matToBufferedImage(src);
-        TokenExtract te = new TokenExtract();
-    	File imageFile = new File("data/ocr1.png");
+       /* TokenExtract te = new TokenExtract();
+        String image = ImagePreProcessing.binarization("data/ocr1.png", "data/imgout.png");
+    	File imageFile = new File(image);
         Tesseract tess4j = new Tesseract();
         tess4j.setTessVariable("user_defined_dpi", "300");
         //tess4j.setTessVariable("debug_file", "/dev/null");
@@ -70,7 +76,7 @@ public class App
         try {
             String result = tess4j.doOCR(imageFile);
             List<String> res = Arrays.asList(te.token(result));
-            //Identico ao for abaixo
+            //Identico ao for ab"data/ocr1.png"aixo
             // String res[] = te.token(result);
             //Arrays.stream(res).forEach(r -> {System.out.println(r);});
             res.forEach(r -> {System.out.println(r);});
@@ -80,7 +86,22 @@ public class App
         } catch (TesseractException e) {
             System.err.println(e.getMessage());
         }
-        
+        */
+    	KeyEvent tecla = null;
+    	
+    	OpenCVFrameConverter.ToMat converterMat = new OpenCVFrameConverter.ToMat();
+    	OpenCVFrameGrabber camera = new OpenCVFrameGrabber(0);
+    	camera.start();
+    	CanvasFrame cframe = new CanvasFrame("Preview", CanvasFrame.getDefaultGamma() / camera.getGamma());
+    	Frame frameCapturado = null;
+    	while((frameCapturado = camera.grab()) != null) {
+    		if(cframe.isVisible()) {
+    			cframe.showImage(frameCapturado);
+    		}
+    	}
+    	cframe.dispose();
+    	camera.stop();
+    	
     }
     
     

@@ -16,7 +16,7 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
 import io.cucumber.java.pt.Quando;
 
-public class TestExtractText {
+public class ExtracaoDeDadosTest {
 	TextExtractOCR txocr = new TextExtractOCR();
 	@Dado("que eu insira uma imagem {string}")
 	public void que_eu_insira_uma_imagem(String string) {
